@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "pewani-labs-site",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -11,7 +11,10 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "build:node": "NITRO_PRESET=node-server vite build",
+    "heroku-postbuild": "npm run build:node",
+    "start": "node .output/server/index.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"
@@ -92,5 +95,8 @@
     "typescript-eslint": "^8.56.1",
     "vite": "8.1.5",
     "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
